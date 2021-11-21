@@ -1,0 +1,11 @@
+.link-set a {
+    text-decoration: none;
+    display: block;
+    border: 3px solid rgb(142, 116, 177);
+    line-height: 15px;
+    margin: 3px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgb(43, 2, 63);
+  }
+  

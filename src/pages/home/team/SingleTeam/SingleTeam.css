@@ -1,0 +1,43 @@
+.card-style{
+
+    height: 300px;
+
+    box-shadow: 2px 3px 11px gray;
+
+    margin-left: 40px;
+    margin-right: 40px;
+   
+}
+.team-name-style{
+
+    color: rgb(211, 62, 8);
+    font-weight: 900;
+    font-size: x-large;
+    text-align: center;
+}
+.card p{
+
+    color: rgb(211, 62, 8);
+    font-weight: 900;
+    text-align: center;
+
+
+   
+}
+
+.button-style{
+   
+   
+    display: block;
+    background-color: rgb(156, 90, 147);
+    border-radius:8px;
+    border:2px solid white;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+    font-weight: 800;
+    color: white;
+    line-height: 35px;
+}
+

@@ -1,23 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import "./App.css";
+import AuthProvider from "./contexts/AuthProvider";
+import Login from "./pages/authentication/Login/Login";
+import PrivateRoute from "./pages/authentication/PrivateRoute/PrivateRoute";
+import Registration from "./pages/authentication/Registration/Registration";
+import CreateTeam from "./pages/CreateTeam/CreateTeam/CreateTeam";
+import DashBoard from "./pages/DashBoard/DashBoard/DashBoard";
+import Home from "./pages/home/Home/Home";
+import JoinTeam from "./pages/JoinTeam/JoinTeam/JoinTeam";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AuthProvider>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/">
+              <Home></Home>
+            </Route>
+            <Route exact path="/home">
+              <Home></Home>
+            </Route>
+            <Route path="/login">
+              <Login></Login>
+            </Route>
+            <Route path="/register">
+              <Registration></Registration>
+            </Route>
+
+            <PrivateRoute path="/createteam">
+              <CreateTeam></CreateTeam>
+            </PrivateRoute>
+            <PrivateRoute path="/jointeam/:teamName">
+              <JoinTeam></JoinTeam>
+            </PrivateRoute>
+            <PrivateRoute path="/dashboard">
+              <DashBoard></DashBoard>
+            </PrivateRoute>
+          </Switch>
+        </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }

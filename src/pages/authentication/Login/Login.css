@@ -1,0 +1,74 @@
+.login-container {
+  background-image: url("../../../images/Login/3.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+}
+
+.login-form {
+  text-align: center;
+  width: 40vw;
+
+  margin-top: 30px;
+
+  background-color: white;
+
+  border: 30px;
+  box-shadow: 5px 5px 11px gray;
+}
+.login-form label {
+  font-weight: 900;
+  display: inline-block;
+
+  font-size: larger;
+  color: gray;
+}
+
+input[type="password"],
+input[type="email"],
+input[type="text"],
+input[type="tel"],
+input[type="number"] ,
+input[type="date"] 
+
+{
+  width: 60%;
+  padding: 7px;
+  margin-top: 12px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 12px;
+  border: 2px solid #ccc;
+  box-sizing: border-box;
+}
+
+.login-button {
+  width: 35%;
+
+  color: white;
+  line-height: 37px;
+  margin-top: 15px;
+  border: 2px solid black;
+  border-radius: 15px;
+  font-weight: 900;
+   
+}
+.forget-password-style {
+  text-decoration: none;
+  display: block;
+
+  color: gray;
+
+  font-weight: 700;
+}
+@media only screen and (max-width: 600px) {
+  .login-form {
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
