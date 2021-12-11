@@ -48,6 +48,14 @@ const Navigation = () => {
             >
               Create Team
             </Nav.Link>
+            <Nav.Link
+              className="fw-bold fs-6 "
+              as={NavHashLink}
+              activeStyle={{ color: "red" }}
+              to="/hotels"
+            >
+              Hotels
+            </Nav.Link>
             
           </Nav>
 

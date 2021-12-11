@@ -4,9 +4,10 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { TextField } from "@mui/material";
+
 
 import CreateForm from "../CreateForm/CreateForm";
+
 
 const IdVerification = () => {
   const [open, setOpen] = React.useState(false);
@@ -43,13 +44,13 @@ const IdVerification = () => {
     );
     // console.log(result.length)
     if (!result?.length) {
-      setIdError("data is wrong");
+      setIdError("Please provide your valid NID ");
       setUserIdNumber("");
 
       setDisabled(true);
       return;
     } else {
-      setIdError("data is valid");
+      setIdError("Valid NID");
       setDisabled(false);
       handleClose();
     }
@@ -64,9 +65,9 @@ const IdVerification = () => {
   }, []);
 
   return (
-    <div>
+    <div className="bg-danger">
       <div>
-        <Button className="mx-auto d-block" onClick={handleOpen}>
+        <Button className="mx-auto d-block text-light" onClick={handleOpen}>
           Verify National Id
         </Button>
 
@@ -75,20 +76,42 @@ const IdVerification = () => {
           onClose={handleClose}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
+          style={{ marginLeft: "auto", marginRight: "auto", display: "block" }}
         >
           <Box sx={style}>
             <form onSubmit={handleIdSubmit}>
-              <Typography id="modal-modal-title" variant="h6" component="h2">
+              <Typography
+                id="modal-modal-title"
+                variant="h6"
+                component="h2"
+                style={{
+                  textAlign: "center",
+                  fontWeight: "900",
+                  color: "orangered",
+                }}
+              >
                 Your National Id Number
               </Typography>
-              <TextField
-                id="standard-basic"
-                name="idNumber"
-                onBlur={handleIdNumber}
-                variant="standard"
+             
+              <input
+              
+              type="number" name="" id="" onBlur={handleIdNumber} />
+          
+              <input
+                style={{
+                  display: "block",
+                  color: "white",
+                  marginLeft: "auto",
+                  marginRight: "auto",
+                  backgroundColor:"violet",
+                  border:"2px solid white",
+                  borderRadius:"8px",
+
+                }}
+                type="submit"
+                value="submit"
               />
-              <input type="submit" value="submit" />
-              <h5> {idError}</h5>
+              <h5  style={{textAlign:"center",fontWeight:"700",color:"red",marginTop:"10px"}}> {idError}</h5>
             </form>
           </Box>
         </Modal>

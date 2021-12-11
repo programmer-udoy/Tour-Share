@@ -57,7 +57,7 @@ const useFirebase = () => {
         // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
+        
 
         setError(error.message);
         // ..
@@ -77,7 +77,7 @@ const useFirebase = () => {
         // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
+       
 
         setError(error.message);
       })
@@ -127,7 +127,7 @@ const useFirebase = () => {
     });
 
     return () => unsubscribed;
-  }, []);
+  }, [auth]);
 
 
   //if admin role is exist check

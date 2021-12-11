@@ -1,0 +1,59 @@
+.input-field-container{
+
+    display: flex;
+  
+   
+    width: 80%;
+   margin-left: auto;
+   margin-right: auto;
+    
+}
+
+.search-field{
+    width: 40%;
+    padding: 7px;
+    margin-top: 12px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 12px;
+    border: 2px solid #ccc;
+    box-sizing: border-box;
+    color: black;
+    font-weight: 700;
+    background-color: white;
+  }
+  .datePicker {
+    width: 100%;
+    margin-right: -59px;
+   
+    
+  }
+  .datePicker2{
+    width: 100%;
+    margin-right: -118px;
+    margin-left: -59px;
+  }
+   
+  @media only screen and (max-width: 600px) {
+    
+    .input-field-container{
+
+        display: block;
+        align-items: flex-start
+       
+        
+    }
+    .datePicker {
+        width: 100%;
+        margin-right: 0px;
+       
+        
+      }
+      .datePicker2{
+        width: 100%;
+        margin-right: 0px;
+        margin-left: 0px;
+      }
+       
+  }

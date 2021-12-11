@@ -20,19 +20,21 @@
   box-shadow: 5px 5px 11px gray;
 }
 .login-form label {
-  font-weight: 900;
+  font-weight: bold;
   display: inline-block;
 
-  font-size: larger;
+  font-size: large;
   color: gray;
+  
 }
-
 input[type="password"],
 input[type="email"],
 input[type="text"],
 input[type="tel"],
 input[type="number"] ,
 input[type="date"] 
+
+
 
 {
   width: 60%;
@@ -44,7 +46,13 @@ input[type="date"]
   margin-bottom: 12px;
   border: 2px solid #ccc;
   box-sizing: border-box;
+  color: black;
+  font-weight: 700;
+  background-color: white;
 }
+
+
+
 
 .login-button {
   width: 35%;
@@ -65,6 +73,8 @@ input[type="date"]
 
   font-weight: 700;
 }
+
+
 @media only screen and (max-width: 600px) {
   .login-form {
     width: 90vw;

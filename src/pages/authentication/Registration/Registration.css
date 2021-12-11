@@ -1,0 +1,10 @@
+.username-container{
+
+   display: inline;
+}
+label {
+    display: inline-block;
+    width: 150px;
+    text-align: left;
+    font-size: small;
+  }

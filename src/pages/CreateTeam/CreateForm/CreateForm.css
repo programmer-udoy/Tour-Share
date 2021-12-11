@@ -1,8 +1,16 @@
 textarea {
-    width: 60%;
-    padding: 7px;
-  
-    border: 2px solid #ccc;
-    box-sizing: border-box;
+  width: 60%;
+  padding: 7px;
+
+  border: 2px solid #ccc;
+  box-sizing: border-box;
+  background-color: white;
+  font-weight: 700;
+  color: black;
   }
   
+  .label-style{
+
+    font-weight: 700;
+    font-size: 15px;
+  }

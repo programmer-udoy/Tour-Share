@@ -20,6 +20,7 @@ import AddTranding from "../AddTranding/AddTranding";
 import AddHappening from "../AddHappening/AddHappening";
 import JoinRequest from "../JoinRequest/JoinRequest";
 import MyTeam from "../MyTeam/MyTeam";
+
 import useAuth from "../../../hooks/useAuth";
   
 import {
@@ -73,7 +74,7 @@ function DashBoard(props) {
   <Link to={`${url}/mybooking`}><Button>my booking</Button></Link>
   <Link to={`${url}/reveiw`}><Button>Reveiw</Button></Link>
   
-  <Link to={`${url}/addtranding`}><Button>Add Tranding Section</Button></Link>
+  
   </Box>
 
 }
@@ -184,6 +185,8 @@ function DashBoard(props) {
         <Route path={`${path}/joinrequest`}>
      <JoinRequest></JoinRequest>
         </Route>
+
+       
       </Switch>
       
       </Box>

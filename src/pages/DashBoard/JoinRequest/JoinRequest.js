@@ -79,12 +79,17 @@ const JoinRequest = () => {
     const newJoinMember = JoinMember[0].teamMember;
     // console.log(newJoinMember)
     const neededMember = myTeamInfo[0].neededMember;
+    const teamMember=myTeamInfo[0].teamMember;
+    console.log(teamMember,newJoinMember)
     let result = parseInt(neededMember) - parseInt(newJoinMember);
+
+    const result1= parseInt(teamMember) + parseInt(newJoinMember);
+    
 
     if (result < 0) {
       result = 0;
     }
-    console.log(myTeamInfo[0]._id)
+   // console.log(myTeamInfo[0]._id)
     
     
     fetch(`http://localhost:5000/allcreateteam/${myTeamInfo[0]._id}`, {
@@ -92,7 +97,7 @@ const JoinRequest = () => {
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify({neededMember:result}),
+        body: JSON.stringify({neededMember:result,teamMember:result1}),
       })
         .then((res) => res.json())
         .then((data) => {
@@ -130,7 +135,7 @@ const JoinRequest = () => {
             </tr>
           </thead>
           {joinRequest?.map((singleTeam) => (
-            <tbody>
+            <tbody  key={singleTeam?._id}>
               <tr>
                 <td>{singleTeam?.userName}</td>
                 <td>{singleTeam?.userEmail}</td>

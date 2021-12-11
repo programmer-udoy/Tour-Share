@@ -43,10 +43,10 @@ const Login = () => {
             <form onSubmit={handleLoginSubmit} className="login-form  text-center">
               <h1 className="bg-primary mb-5 lh-lg text-light">Login </h1>
 
-              <label htmlFor="email">Email Address</label>
+             
 
-              <input onBlur={handleOnBlur} type="email" name="email" placeholder="demo@gmail.com" />
-              <label htmlFor="password">Password</label>
+            <input onBlur={handleOnBlur} type="email" name="email" placeholder="Email" /> 
+             
               <input onBlur={handleOnBlur} type="password" name="password" placeholder="Password" />
               <p className="text-danger fw-bold"> {error}</p>
               <Link className="forget-password-style mt-3">

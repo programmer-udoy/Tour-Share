@@ -68,36 +68,69 @@ const Registration = () => {
               onSubmit={handleRegistrationSubmit}
             >
               <h1 className="bg-primary mb-5 lh-lg text-light">Register </h1>
+              <div  className="username-container">
+              <label for="uname" >Username:</label>
+              
+            
               <input
                 type="text"
                 name="userName"
                 placeholder="User Name"
                 onBlur={handleRegisterData}
                 required
+                className="d-inline"
               />
+              </div>
+             
 
+              <div  className="username-container">
+              <label for="uname" >Email:</label>
+              
+            
               <input
                 type="email"
                 name="email"
                 placeholder="Email"
+                className="d-inline"
                 onBlur={handleRegisterData}
                 required
               />
+              </div>
 
+              <div  className="username-container">
+              <label for="uname" >Password:</label>
+              
+            
+             
               <input
                 type="password"
                 name="password1"
                 placeholder="Password"
+                className="d-inline"
                 onBlur={handleRegisterData}
                 required
               />
+              </div>
+
+              <div  className="username-container">
+              <label for="uname" >Retype Password:</label>
+              
+            
               <input
                 type="password"
                 name="password2"
                 placeholder="Retype Password"
+                className="d-inline"
                 onBlur={handleRegisterData}
                 required
               />
+              </div>
+
+              
+
+             
+
+           
               {error && <Alert severity="error">{error}</Alert>}
               <p>{registerError}</p>
 
