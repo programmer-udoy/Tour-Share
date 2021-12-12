@@ -3,8 +3,8 @@ import "./DashBoard.css"
 
 const DashBoard = () => {
     return (
-        <div>
-            <h1>this is dashboard</h1>
+        <div className="banner ">
+            <h1 className="text-light">this is dashboard</h1>
         </div>
     );
 };

@@ -65,7 +65,7 @@ const IdVerification = () => {
   }, []);
 
   return (
-    <div className="bg-danger">
+    <div style={{backgroundColor:"orange"}}>
       <div>
         <Button className="mx-auto d-block text-light" onClick={handleOpen}>
           Verify National Id

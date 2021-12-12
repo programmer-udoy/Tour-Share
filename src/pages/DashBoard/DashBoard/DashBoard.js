@@ -27,7 +27,7 @@ import {
     Switch,
     Route,
     Link,
-    useParams,
+   
     useRouteMatch
   } from "react-router-dom";
 
@@ -107,7 +107,7 @@ function DashBoard(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Responsive drawer
+            My DashBoard
           </Typography>
         </Toolbar>
 

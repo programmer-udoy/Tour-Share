@@ -9,6 +9,7 @@ import DashBoard from "./pages/DashBoard/DashBoard/DashBoard";
 import Home from "./pages/home/Home/Home";
 import Hotels from "./pages/Hotels/Hotels/Hotels";
 import JoinTeam from "./pages/JoinTeam/JoinTeam/JoinTeam";
+
 import UpdateTeam from "./pages/UpdateTeam/UpdateTeam";
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
               <DashBoard></DashBoard>
             </PrivateRoute>
           </Switch>
+          
         </BrowserRouter>
       </AuthProvider>
     </div>

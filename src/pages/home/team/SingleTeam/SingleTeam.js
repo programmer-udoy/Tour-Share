@@ -12,7 +12,7 @@ const SingleTeam = (props) => {
     const slice=teamName.indexOf("_")
     return (
         <div className="col">
-        <div className="card text-center card-style ">
+        <div className="card text-center card-style mb-3">
        
           <h5 className=" team-name-style"> Team Name: <span className="text-dark fs-5 ">{teamName.slice(0,slice)}</span> </h5>
 
