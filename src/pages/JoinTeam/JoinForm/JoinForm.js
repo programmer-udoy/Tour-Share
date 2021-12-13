@@ -13,7 +13,7 @@ const JoinForm = (props) => {
 
   const { user } = useAuth();
   const onSubmit = (data) => {
-    axios.post("http://localhost:5000/jointeam", data).then((res) => {
+    axios.post("https://peaceful-caverns-31356.herokuapp.com/jointeam", data).then((res) => {
       console.log(res);
       if (res.data.insertedId) {
         alert("your join request has been send   succesfully");
@@ -23,8 +23,8 @@ const JoinForm = (props) => {
   };
 
   return (
-    <div style={{ backgroundColor: "orange" }}>
-      <h1>JOIN TEAM</h1>
+    <div style={{ backgroundColor: "#ff914f" }}>
+      <h1 className="text-center">JOIN TEAM</h1>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>

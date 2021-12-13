@@ -64,7 +64,7 @@ const JoinIdVerification = (props) => {
   };
 
   return (
-    <div style={{backgroundColor:"orange"}}>
+    <div style={{backgroundColor:"#ff914f"}}>
       <div>
         <Button className="mx-auto d-block mb-5 text-light" onClick={handleOpen}>
           Verify National Id

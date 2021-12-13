@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
+
+import Navigation from "../shared/Navigation/Navigation";
 import "./UpdateTeam.css";
 const UpdateTeam = () => {
   const [myTeam, setMyTeam] = useState({});
   const { id } = useParams();
 
-  const uri = `http://localhost:5000/createteam/${id}`;
+  const uri = `https://peaceful-caverns-31356.herokuapp.com/createteam/${id}`;
 
 
 
@@ -60,7 +62,7 @@ const UpdateTeam = () => {
   };
 
   const handleSubmit = (e) => {
-    const uri = `http://localhost:5000/createteam/${id}`;
+    const uri = `https://peaceful-caverns-31356.herokuapp.com/createteam/${id}`;
     fetch(uri, {
       method: "PUT",
       headers: {
@@ -80,7 +82,8 @@ const UpdateTeam = () => {
 
   return (
     <div>
-      <h1>this is update team page</h1>
+      <Navigation></Navigation>
+      <h1>Update Your Team Info</h1>
 
       <form onSubmit={handleSubmit}>
         <input
@@ -111,7 +114,7 @@ const UpdateTeam = () => {
           onChange={handleEndDate}
           value={myTeam.endDate || ""}
         />
-        <input type="submit" value="Update" />
+        <input type="submit" className="mb-3" value="Update" />
       </form>
 
       

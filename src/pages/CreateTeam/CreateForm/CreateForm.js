@@ -20,7 +20,7 @@ const CreateForm = (props) => {
     data.teamName = newTeamName;
     console.log(data);
 
-    axios.post("http://localhost:5000/createteam", data).then((res) => {
+    axios.post("https://peaceful-caverns-31356.herokuapp.com/createteam", data).then((res) => {
       console.log(res);
       if (res.data.insertedId) {
         alert("your team  has been created  succesfully");
@@ -30,8 +30,8 @@ const CreateForm = (props) => {
   };
 
   return (
-    <div style={{ backgroundColor: "orange" }}>
-      <h1>CREATE TEAM</h1>
+    <div style={{ backgroundColor: "#ff914f" }}>
+      <h1 className="text-center">CREATE TEAM</h1>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>

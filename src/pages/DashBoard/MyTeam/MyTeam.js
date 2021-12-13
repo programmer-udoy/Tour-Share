@@ -8,14 +8,14 @@ const MyTeam = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/createteam?email=${user.email}`)
+    fetch(`https://peaceful-caverns-31356.herokuapp.com/createteam?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => setMyTeam(data));
   }, [user.email]);
   const handleOrderDelteId = (id) => {
     const proceed = window.confirm("are you sure you want to delete");
     if (proceed) {
-      fetch(`http://localhost:5000/allcreteteam/${id}`, {
+      fetch(`https://peaceful-caverns-31356.herokuapp.com/allcreteteam/${id}`, {
         method: "delete",
       })
         .then((res) => res.json())
@@ -31,7 +31,7 @@ const MyTeam = () => {
 
   const handleUpdateId=(id)=>{
 
-  const url=`http://localhost:5000/allcreteteam/${id}`
+  const url=`https://peaceful-caverns-31356.herokuapp.com/allcreteteam/${id}`
 
   console.log(url)
 

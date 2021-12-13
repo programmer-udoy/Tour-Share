@@ -7,7 +7,7 @@ const AllTeam = () => {
   const [allTeam, setAllTeam] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allcreateteam")
+    fetch("https://peaceful-caverns-31356.herokuapp.com/allcreateteam")
       .then((req) => req.json())
       .then((data) => setAllTeam(data));
   }, []);

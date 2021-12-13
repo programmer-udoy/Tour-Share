@@ -11,7 +11,7 @@ const MakeAdmin = () => {
   };
   const handleSumbit = (e) => {
     const user = { email };
-    fetch("http://localhost:5000/users/admin", {
+    fetch("https://peaceful-caverns-31356.herokuapp.com/users/admin", {
       method: "PUT",
       headers: {
         "content-type": "application/json",

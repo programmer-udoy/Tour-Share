@@ -18,7 +18,7 @@ const JoinRequest = () => {
 
   useEffect(() => {
       setLoading(true)
-    fetch(`http://localhost:5000/createteam?email=${user?.email}`)
+    fetch(`https://peaceful-caverns-31356.herokuapp.com/createteam?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyTeamInfo(data);
@@ -30,7 +30,7 @@ const JoinRequest = () => {
 
   useEffect(() => {
     setLoading(true)
-    fetch(`http://localhost:5000/jointeam?teamName=${myTeam}`)
+    fetch(`https://peaceful-caverns-31356.herokuapp.com/jointeam?teamName=${myTeam}`)
       .then((res) => res.json())
       .then((data) => setJoinREquest(data));
       setLoading(false)
@@ -43,7 +43,7 @@ const JoinRequest = () => {
   const handleOrderDelteId = (id) => {
     const proceed = window.confirm("are you sure you want to delete");
     if (proceed) {
-      fetch(`http://localhost:5000/alljointeam/${id}`, {
+      fetch(`https://peaceful-caverns-31356.herokuapp.com/alljointeam/${id}`, {
         method: "delete",
       })
         .then((res) => res.json())
@@ -92,7 +92,7 @@ const JoinRequest = () => {
    // console.log(myTeamInfo[0]._id)
     
     
-    fetch(`http://localhost:5000/allcreateteam/${myTeamInfo[0]._id}`, {
+    fetch(`https://peaceful-caverns-31356.herokuapp.com/allcreateteam/${myTeamInfo[0]._id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

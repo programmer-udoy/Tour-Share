@@ -34,7 +34,7 @@ const FindHotels = () => {
   };
  
   useEffect(() => {
-    const uri = `http://localhost:5000/hotels?search=${placeName}&price=${price}`;
+    const uri = `https://peaceful-caverns-31356.herokuapp.com/hotels?search=${placeName}&price=${price}`;
 
     fetch(uri)
       .then((req) => req.json())
