@@ -4,10 +4,12 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { TextField } from "@mui/material";
+import useAuth from "../../../hooks/useAuth";
 import JoinForm from "../JoinForm/JoinForm";
+import axios from "axios";
 
 const JoinIdVerification = (props) => {
+  //console.log(props)
   const teamName = props.teamName;
 
   const [open, setOpen] = React.useState(false);
@@ -17,6 +19,9 @@ const JoinIdVerification = (props) => {
   const [nationaIdNumber, setNationalIdNumber] = useState([]);
   const [idError, setIdError] = useState("");
   const [disabled, setDisabled] = useState(true);
+  const { user } = useAuth();
+  const [objectNationalId, setObjectNationalId] = useState({});
+  const [arrayNationalId, setArrayNationalId] = useState([]);
 
   const style = {
     position: "absolute",
@@ -37,8 +42,28 @@ const JoinIdVerification = (props) => {
       .then((req) => req.json())
       .then((data) => setNationalIdNumber(data));
   }, []);
+
+  useEffect(() => {
+    fetch("https://peaceful-caverns-31356.herokuapp.com/nid")
+      .then((req) => req.json())
+      .then((data) => setArrayNationalId(data));
+  }, []);
+
+  const nidPost = () => {
+    axios.put("https://peaceful-caverns-31356.herokuapp.com/nid", objectNationalId).then((res) => {
+      //console.log(res);
+    });
+  };
+
+ 
+
   const handleIdNumber = (e) => {
     const value = e.target.value;
+    const nidObject={
+      email:user.email,
+      nidNumber:value
+    }
+    setObjectNationalId(nidObject);
     setUserIdNumber(value);
     //console.log(userIdNumber)
   };
@@ -49,6 +74,9 @@ const JoinIdVerification = (props) => {
     const result = nationaIdNumber?.filter(
       (data) => parseInt(data?.nationalId) === parseInt(userIdNumber)
     );
+    const matchId = arrayNationalId.find((data) =>data.nidNumber == userIdNumber )
+
+   // console.log(matchId?.nidNumber)
     // console.log(result.length)
     if (!result?.length) {
       setIdError("Please provide your valid NID ");
@@ -56,10 +84,19 @@ const JoinIdVerification = (props) => {
 
       setDisabled(true);
       return;
-    } else {
+    }
+    if(matchId!==undefined &&matchId.email!==user.email){
+
+      setIdError("already Nid taken");
+      setUserIdNumber("");
+      setDisabled(true);
+    }
+    else {
       setIdError("Valid NID");
+      nidPost();
       setDisabled(false);
       handleClose();
+     
     }
   };
 

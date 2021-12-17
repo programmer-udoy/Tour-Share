@@ -51,8 +51,8 @@ const MyTeam = () => {
 
               <th scope="col">Start Date</th>
               <th scope="col">End Date</th>
-              <th scope="col">Delete</th>
               <th scope="col">Update</th>
+              <th scope="col">Delete</th>
             </tr>
           </thead>
           {myTeam?.map((singleTeam) => (

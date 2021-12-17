@@ -58,8 +58,7 @@ function DashBoard(props) {
   <Link to={`${url}/makeadmin`}><Button>Make Admin</Button></Link>
   <Link to={`${url}/makeagency`}><Button>Make Agency</Button></Link>
   <Link to={`${url}/tranding`}><Button>Manage Tranding Section</Button></Link>
-  <Link to={`${url}/happening`}><Button>Manage Happening Section</Button></Link>
-  <Link to={`${url}/addhappening`}><Button>Add Happening Section</Button></Link>
+  
   <Link to={`${url}/addtranding`}><Button>Add Tranding Section</Button></Link>
   </Box>
   :

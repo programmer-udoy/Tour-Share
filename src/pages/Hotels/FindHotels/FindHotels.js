@@ -33,13 +33,13 @@ const FindHotels = () => {
     setRoomCount(value);
   };
  
-  useEffect(() => {
-    const uri = `https://peaceful-caverns-31356.herokuapp.com/hotels?search=${placeName}&price=${price}`;
+  // useEffect(() => {
+  //   const uri = `https://peaceful-caverns-31356.herokuapp.com/hotels?search=${placeName}&price=${price}`;
 
-    fetch(uri)
-      .then((req) => req.json())
-      .then((data) => setHotels(data));
-  }, [price]);
+  //   fetch(uri)
+  //     .then((req) => req.json())
+  //     .then((data) => setHotels(data));
+  // }, [price]);
 
 
   return (
