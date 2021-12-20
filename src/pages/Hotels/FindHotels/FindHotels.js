@@ -9,10 +9,21 @@ const FindHotels = () => {
   const [price, setPrice] = useState(null);
   const [roomType, setRoomType] = useState("");
   const [roomCount, setRoomCount] = useState("");
+  const [dateDifference,setDateDifference]=useState("")
   const [hotels, setHotels] = useState([]);
+
+  useEffect(() => {
+    const uri = `http://localhost:5000/hotels?search=${placeName}&price=${price}&roomtype=${roomType}`;
+     //console.log(uri)
+    fetch(uri)
+      .then((req) => req.json())
+      .then((data) => setHotels(data));
+  }, [placeName,price,roomType]);
+
 
   const handleInput = (e) => {
     e.preventDefault();
+    
   };
   
   const handlePlace = (e) => {
@@ -27,20 +38,24 @@ const FindHotels = () => {
   const handleRoomType = (e) => {
     const value = e.target.value;
     setRoomType(value);
+    handledateDifference()
   };
   const handleRoomCount = (e) => {
     const value = e.target.value;
     setRoomCount(value);
   };
+  const handledateDifference=()=>{
+
+      
+    
+    const diffTime = Math.abs(endDate- startDate);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+  
+    setDateDifference(diffDays );
+  }
+  
  
-  // useEffect(() => {
-  //   const uri = `https://peaceful-caverns-31356.herokuapp.com/hotels?search=${placeName}&price=${price}`;
-
-  //   fetch(uri)
-  //     .then((req) => req.json())
-  //     .then((data) => setHotels(data));
-  // }, [price]);
-
+  
 
   return (
     <div>
@@ -93,9 +108,9 @@ const FindHotels = () => {
         />
 
         <datalist id="browsers">
-          <option value="Single Bad" />
-          <option value="Double bad" />
-          <option value="Couple bad" />
+          <option value="Single Bed" />
+          <option value="Double Bed" />
+          <option value="Couple Bed" />
         </datalist>
         <input
           type="number"
@@ -110,6 +125,9 @@ const FindHotels = () => {
           <HotelsDetails
             key={Math.random()}
             hotelDetails={hotelDetails}
+            dateDifference={dateDifference}
+            roomType={roomType}
+            roomCount={roomCount}
           ></HotelsDetails>
         ))}
       </div>

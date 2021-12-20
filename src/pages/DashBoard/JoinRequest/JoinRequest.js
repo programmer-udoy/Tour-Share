@@ -1,6 +1,7 @@
 import { CircularProgress } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
+import JoinSendMessage from "../JoinSendMessage/JoinSendMessage";
 import "./JoinRequest.css";
 
 const JoinRequest = () => {
@@ -9,36 +10,32 @@ const JoinRequest = () => {
   const [myTeam, setMyTeam] = useState([]);
   const [myTeamInfo, setMyTeamInfo] = useState([]);
   const [loading, setLoading] = useState(true);
-  
+  const [clickvalue,setClickValue]=useState(null)
 
   const { user } = useAuth();
 
-
-  
-
   useEffect(() => {
-      setLoading(true)
-    fetch(`https://peaceful-caverns-31356.herokuapp.com/createteam?email=${user?.email}`)
+    setLoading(true);
+    fetch(
+      `https://peaceful-caverns-31356.herokuapp.com/createteam?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setMyTeamInfo(data);
         setMyTeam(data[0]?.teamName);
-        setLoading(false)
-        
+        setLoading(false);
       });
   }, [user?.email]);
 
   useEffect(() => {
-    setLoading(true)
-    fetch(`https://peaceful-caverns-31356.herokuapp.com/jointeam?teamName=${myTeam}`)
+    setLoading(true);
+    fetch(
+      `https://peaceful-caverns-31356.herokuapp.com/jointeam?teamName=${myTeam}`
+    )
       .then((res) => res.json())
       .then((data) => setJoinREquest(data));
-      setLoading(false)
+    setLoading(false);
   }, [myTeam]);
-
-
-
-
 
   const handleOrderDelteId = (id) => {
     const proceed = window.confirm("are you sure you want to delete");
@@ -55,10 +52,8 @@ const JoinRequest = () => {
           }
         });
     }
-    setLoading(false)
+    setLoading(false);
   };
-
-
 
   //update disabled  state in local storage
 
@@ -79,41 +74,37 @@ const JoinRequest = () => {
     const newJoinMember = JoinMember[0].teamMember;
     // console.log(newJoinMember)
     const neededMember = myTeamInfo[0].neededMember;
-    const teamMember=myTeamInfo[0].teamMember;
-    console.log(teamMember,newJoinMember)
+    const teamMember = myTeamInfo[0].teamMember;
+    //console.log(teamMember, newJoinMember);
     let result = parseInt(neededMember) - parseInt(newJoinMember);
 
-    const result1= parseInt(teamMember) + parseInt(newJoinMember);
-    
+    const result1 = parseInt(teamMember) + parseInt(newJoinMember);
+
+    const clickButton=document.getElementById(id)
+    setClickValue(clickButton.innerText)
 
     if (result < 0) {
       result = 0;
     }
-   // console.log(myTeamInfo[0]._id)
-    
-    
-    fetch(`https://peaceful-caverns-31356.herokuapp.com/allcreateteam/${myTeamInfo[0]._id}`, {
+    // console.log(myTeamInfo[0]._id)
+
+    fetch(
+      `https://peaceful-caverns-31356.herokuapp.com/allcreateteam/${myTeamInfo[0]._id}`,
+      {
         method: "PUT",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify({neededMember:result,teamMember:result1}),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.modifiedCount) {
-            alert("successfully approved");
-          
-          }
-        });
-    
-    
-   
-  
-  
+        body: JSON.stringify({ neededMember: result, teamMember: result1 }),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount) {
+          alert("successfully approved");
+        }
+      });
   };
-
-  
 
   return (
     <div>
@@ -125,17 +116,17 @@ const JoinRequest = () => {
           <thead>
             <tr>
               <th scope="col">User Name</th>
-              <th scope="col">user Email</th>
+              <th scope="col">User Email</th>
               <th scope="col">Team Member</th>
 
               <th scope="col">Address</th>
               <th scope="col">Phone Number</th>
-              <th scope="col">Approved</th>
+              <th scope="col" >Approved</th>
               <th scope="col">Delete</th>
             </tr>
           </thead>
           {joinRequest?.map((singleTeam) => (
-            <tbody  key={singleTeam?._id}>
+            <tbody key={singleTeam?._id}>
               <tr>
                 <td>{singleTeam?.userName}</td>
                 <td>{singleTeam?.userEmail}</td>
@@ -159,7 +150,15 @@ const JoinRequest = () => {
                     Delete
                   </button>
                 </td>
+                <td>
+                <JoinSendMessage
+               key={Math.random()}
+                JoinUserEmail= {singleTeam?.userEmail}
+                clickvalue={clickvalue}
+              ></JoinSendMessage>
+                </td>
               </tr>
+              
             </tbody>
           ))}
         </table>

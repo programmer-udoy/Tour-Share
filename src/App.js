@@ -7,6 +7,7 @@ import Registration from "./pages/authentication/Registration/Registration";
 import CreateTeam from "./pages/CreateTeam/CreateTeam/CreateTeam";
 import DashBoard from "./pages/DashBoard/DashBoard/DashBoard";
 import Home from "./pages/home/Home/Home";
+import Booking from "./pages/Hotels/Booking/Booking";
 import Hotels from "./pages/Hotels/Hotels/Hotels";
 import JoinTeam from "./pages/JoinTeam/JoinTeam/JoinTeam";
 
@@ -47,6 +48,9 @@ function App() {
             <PrivateRoute path="/dashboard">
               <DashBoard></DashBoard>
             </PrivateRoute>
+            <Route exact path="/booking">
+              <Booking></Booking>
+            </Route>
           </Switch>
           
         </BrowserRouter>
