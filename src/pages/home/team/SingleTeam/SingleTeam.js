@@ -8,7 +8,7 @@ import {
 const SingleTeam = (props) => {
 
     
-    const{destination,teamMember,neededMember,startDate,endDate,teamName}=props.singleTeam;
+    const{destination,teamMember,neededMember,startDate,endDate,teamName,budget,plan}=props.singleTeam;
     const slice=teamName.indexOf("_")
     return (
         <div className="col">
@@ -22,6 +22,8 @@ const SingleTeam = (props) => {
         
           <p className=" " >Person We Have: <span  className="text-dark fs-6 " > {teamMember }</span> </p>
           <p className=" " >Person We Need: <span  className="text-dark fs-6 " >{neededMember}</span> </p>
+          <p className=" " >Our Tour Budget: <span  className="text-dark fs-6 " >{budget} tk</span> </p>
+          <p className=" " >Place We Cover: <span  className="text-dark fs-6 " >{plan}</span> </p>
          
           <p className=" " > Start Date: <span  className="text-dark fs-6 " >{startDate}</span> </p>
           <p className="" >End Date: <span  className="text-dark fs-6 " >{endDate}</span> </p>

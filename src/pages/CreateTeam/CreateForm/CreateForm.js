@@ -138,6 +138,34 @@ const CreateForm = (props) => {
             required
           />
         </div>
+        <div>
+          <label className="label-style" htmlFor="">
+            Budget:
+          </label>
+
+          <input
+            type="text"
+            {...register("budget")}
+            disabled={disabled}
+            placeholder="Your Budget"
+            className="d-inline"
+            required
+          />
+        </div>
+        <div>
+          <label className="label-style" htmlFor="">
+           Place Cover:
+          </label>
+
+          <input
+            type="text"
+            {...register("plan")}
+            disabled={disabled}
+            placeholder="Place You will cover "
+            className="d-inline"
+            required
+          />
+        </div>
 
         <div>
           <label className="label-style" htmlFor="">

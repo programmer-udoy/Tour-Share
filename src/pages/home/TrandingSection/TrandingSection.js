@@ -14,7 +14,7 @@ const TrandingSection = () => {
   }, []);
   return (
     <div>
-      <h1 >TRENDING PLACES</h1>
+      <h1 className="tranding-text">TRENDING PLACES</h1>
       <div className="tranding-section ">
         {trandingPlace.map((singleTranding) => (
           <SingleTrandingPlace

@@ -9,23 +9,21 @@ const FindHotels = () => {
   const [price, setPrice] = useState(null);
   const [roomType, setRoomType] = useState("");
   const [roomCount, setRoomCount] = useState("");
-  const [dateDifference,setDateDifference]=useState("")
+  const [dateDifference, setDateDifference] = useState("");
   const [hotels, setHotels] = useState([]);
 
   useEffect(() => {
-    const uri = `http://localhost:5000/hotels?search=${placeName}&price=${price}&roomtype=${roomType}`;
-     //console.log(uri)
+    const uri = `https://peaceful-caverns-31356.herokuapp.com/hotels?search=${placeName}&price=${price}&roomtype=${roomType}&totalRoom=${roomCount}`;
+    console.log(uri)
     fetch(uri)
       .then((req) => req.json())
       .then((data) => setHotels(data));
-  }, [placeName,price,roomType]);
-
+  }, [placeName,roomCount ,price, roomType]);
 
   const handleInput = (e) => {
     e.preventDefault();
-    
   };
-  
+
   const handlePlace = (e) => {
     const value = e.target.value;
     setPlaceName(value);
@@ -36,26 +34,21 @@ const FindHotels = () => {
     setPrice(value);
   };
   const handleRoomType = (e) => {
-    const value = e.target.value;
+    let value = e.target.value.toLowerCase();
+    value = value.replace(/\s+/g, '');
     setRoomType(value);
-    handledateDifference()
+    handledateDifference();
   };
   const handleRoomCount = (e) => {
     const value = e.target.value;
     setRoomCount(value);
   };
-  const handledateDifference=()=>{
+  const handledateDifference = () => {
+    const diffTime = Math.abs(endDate - startDate);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-      
-    
-    const diffTime = Math.abs(endDate- startDate);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
-  
-    setDateDifference(diffDays );
-  }
-  
- 
-  
+    setDateDifference(diffDays);
+  };
 
   return (
     <div>
@@ -103,7 +96,7 @@ const FindHotels = () => {
         <input
           type="text"
           list="browsers"
-          placeholder="room "
+          placeholder="room type"
           onBlur={handleRoomType}
         />
 
@@ -117,10 +110,10 @@ const FindHotels = () => {
           placeholder="room count"
           onBlur={handleRoomCount}
         />
-        <input type="submit" className="search-field " value="Search" />
+        
       </form>
 
-      <div className="card-group">
+      <div className="row row-cols-1 row-cols-md-3 g-4 container-set">
         {hotels?.map((hotelDetails) => (
           <HotelsDetails
             key={Math.random()}
@@ -128,6 +121,8 @@ const FindHotels = () => {
             dateDifference={dateDifference}
             roomType={roomType}
             roomCount={roomCount}
+            startDate={startDate}
+            endDate={endDate}
           ></HotelsDetails>
         ))}
       </div>

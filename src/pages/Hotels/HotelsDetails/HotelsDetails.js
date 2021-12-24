@@ -8,16 +8,40 @@ const HotelsDetails = (props) => {
   const { name, destination, desc, price, rating, des ,img} = props?.hotelDetails;
   const  dateDifference=props?.dateDifference;
   const roomType=props.roomType;
-  const roomCount=props.roomCount
+  const roomCount=props.roomCount;
+  const startDate=props.startDate;
+  const endDate=props.endDate;
   //console.log(dateDifference)
 
-  const handleBookingValue=()=>{
+  
 
      const arrayOfData=[
+       {
+         dateDifference:dateDifference
+       },
+       {
+         roomCount:roomCount
+       },
+       {
+        roomType:roomType 
+       }
+       ,{
+         hotelName:name
+       },
+       {
+         hotelPrice:price
+       },
+       {
+         startDate:startDate.toLocaleDateString()
+       },
+       {
 
-      dateDifference,roomCount,roomType
+         endDate:endDate.toLocaleDateString()
+       }
+
+      
      ]
-  }
+  
 
 
   return (
@@ -32,7 +56,14 @@ const HotelsDetails = (props) => {
           <p  className="text-dark" >{roomType} Price:{price} Tk Per Night</p>
           
           <p  className="text-dark">Rating:{rating}</p>
-          <Link to="/booking"  
+          <Link  
+         to={{
+          pathname: '/booking',
+          state: {
+            fromNotifications: arrayOfData
+          }
+        }}
+        
           
           ><button className="btn btn-danger">Book</button></Link>
           

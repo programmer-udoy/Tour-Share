@@ -9,6 +9,7 @@ import DashBoard from "./pages/DashBoard/DashBoard/DashBoard";
 import Home from "./pages/home/Home/Home";
 import Booking from "./pages/Hotels/Booking/Booking";
 import Hotels from "./pages/Hotels/Hotels/Hotels";
+import Success from "./pages/Hotels/Success/Success";
 import JoinTeam from "./pages/JoinTeam/JoinTeam/JoinTeam";
 
 import UpdateTeam from "./pages/UpdateTeam/UpdateTeam";
@@ -50,6 +51,10 @@ function App() {
             </PrivateRoute>
             <Route exact path="/booking">
               <Booking></Booking>
+            </Route>
+            <Route exat path="/success/:id">
+
+              <Success></Success>
             </Route>
           </Switch>
           
